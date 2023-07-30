@@ -1,94 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Learning Management System - Video Gallery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <link rel="stylesheet" href="css/style.css">
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      /* background-color: red; */
+      padding: 20px;
+      gap: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .video-container {
+      max-width: 700px;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 400px;
+      /* Set the height for the embedded YouTube video */
+    }
+
+    .playlist {
+      height: 300px;
+      width: 400px;
+      /* background-color: yellow; */
+      /* background-color: red; */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+    }
+
+    .videourl {
+      height: 50px;
+      width: 400px;
+      background-color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 1px 1px 13px 0px rgb(26, 21, 21);
+      display: flex;
+      /* text-align: center; */
+      /* justify-content: center; */
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .video-container {
+        min-width: 100%;
+    }
+
+    
+    .playlist {
+      height: 100px;
+      width: 500px;
+
+
+    }
+     
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-    <div class="container">
-       
-            <div class="header-container">
-                <div class="logo-search-bar">
-                    <div class="logo">
-                            <div class="logo-img"><a href="#"><img src="images/logo.svg" alt=""></a></div>
-                            <a href="#" class="title">
-                                <span><i class="explore">Explore</i></span>
-                                <span><i class="plus">Plus</i></span>
-                                <span><img src="images/logo-down.svg" alt="" class="logo-down"></span>
-                            </a>
-                    </div>
-                    
-                    <div class="search-bar">
-                        <a href="#" style="text-decoration: none;"><i class='bx bx-search' id="search-icon"></i></a>
-                        <input type="text" name="" id="search-bar" placeholder="Search for Products , Brands and More" style="width: 400px;">
-
-                    </div>
-
-
-                </div>
-
-                <div class="menu-bar">
-                    <a href="#">
-                        <i class='bx bxs-castle'></i>
-                        Become a Seller
-                    </a>
-
-                    <a href="#" class="Signin">
-                        <i class='bx bx-user' ></i>
-                        Sign in
-                        <i  id="down" class='bx bx-chevron-down' ></i>
-                       
-                    </a>
-                    <div class="select-hover">
-                        <div class="upper-sighnup-customer">
-                            <a href="#" class="newcus">New Cusomer?</a>
-                            <a href="#" class="signup">Sign Up</a>
-                           
-
-                        </div>
-                        <hr style="margin-top: 1px;">
-                        <div class="bottom-select">
-                            
-                            
-                        </div>
-                    </div>
-                    
-
-                    <a href="#">
-                        <i class='bx bx-cart-alt' ></i>
-                        Cart
-                    </a>
-                    <a href="#">
-                        <i class='bx bx-dots-vertical-rounded' ></i>
-                    </a>
-
-
-                </div>
-
-            </div>
-      
-      
-    </div>
-</header>
-
-<div class="main-container">
-    <div class="product-list">
-        <img src="images/grocery.webp" alt="">
+  <div class="container">
+    <!-- Video container -->
+    <div class="video-container">
+      <iframe id="videoPlayer" src="https://www.youtube.com/embed/ZkSmKqmrA80" frameborder="0" allowfullscreen></iframe>
+      <p id="videoDescription">fcgvhb</p>
+      <P class="" id="bock"></P>
 
     </div>
 
-</div>
-  
-    
+    <!-- Video playlist -->
+    <div class="playlist">
+      <div class="videourl"
+        onclick="changeVideo('https://www.youtube.com/embed/ZkSmKqmrA80', 'Video 1 - Introduction to Topic 1')">Video 1
+        - Introduction</div>
+      <div class="videourl"
+        onclick="changeVideo('https://www.youtube.com/embed/qZId59qml_4', 'Video 2 - Overview of Topic 2')">Video 2 -
+        Overview</div>
+      <div class="videourl"
+        onclick="changeVideo('https://www.youtube.com/embed/iYRqAc10Ii8', 'Video 3 - Topic 3 in-depth')">Video 3 -
+        In-depth</div>
 
+      <!-- Add more video links as needed -->
+    </div>
+  </div>
 
+  <script>
+    function changeVideo(videoSource, description) {
+      const videoPlayer = document.getElementById('videoPlayer');
+      const videodec = document.getElementById('videoDescription');
+      const pc = document.getElementById('bock');
+      pc.className = 'active';
+
+      videoPlayer.src = videoSource;
+      videodec.textContent = description;
+    }
+  </script>
 </body>
 
 </html>
